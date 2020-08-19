@@ -11,27 +11,55 @@ body {
 }
 
 #avatar {
-    width: 20%;
-    height: 20%;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     margin-top: 40px;
     box-shadow: 0 0 1px rgba(40, 43, 48, .4), 0 1px 4px rgba(40, 43, 48, .1);
 }
 
-.icn {
-    margin-left: 10px;
+.highlight {
+    color: rgb(200, 92, 219, 0.8);
 }
 
 #github {
-    color: #F395C7
+    transition:color .2s ease-in-out, background .2s ease-in-out;
+    color: rgba(243, 149, 199, 0.3)
+}
+
+#github:hover {
+    transition:color .2s ease-in-out, background .2s ease-in-out;
+    color: rgba(243, 149, 199, 0.7)
 }
 
 #insta {
-    color: #69DBC8
+    transition:color .2s ease-in-out, background .2s ease-in-out;
+    color: rgba(255, 96, 28, 0.3)
+}
+
+#insta:hover {
+    transition:color .2s ease-in-out, background .2s ease-in-out;
+    color: rgba(255, 96, 28, 0.75)
 }
 
 #email {
-    color: #7F35B2
+    transition:color .2s ease-in-out, background .2s ease-in-out;
+    color: rgba(128, 53, 178, 0.3)
+}
+
+#email:hover {
+    transition:color .2s ease-in-out, background .2s ease-in-out;
+    color: rgba(128, 53, 178, 0.75)
+}
+
+#linkedin {
+    transition:color .2s ease-in-out, background .2s ease-in-out;
+    color: rgba(28, 73, 255, 0.3);
+}
+
+#linkedin:hover {
+    transition:color .2s ease-in-out, background .2s ease-in-out;
+    color: rgba(28, 73, 255, 0.75);
 }
 
 a {
