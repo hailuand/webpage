@@ -1,0 +1,95 @@
+body {
+    color: #343d52;
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    min-height: 100vh;
+    background: #fff;
+    justify-content: center;
+    -webkit-font-smoothing:antialiased;
+}
+
+#avatar {
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    margin-top: 40px;
+    box-shadow: 0 0 1px rgba(40, 43, 48, .4), 0 1px 4px rgba(40, 43, 48, .1);
+}
+
+.icn {
+    margin-left: 10px;
+}
+
+#github {
+    color: #F395C7
+}
+
+#insta {
+    color: #69DBC8
+}
+
+#email {
+    color: #7F35B2
+}
+
+a {
+    transition:color .2s ease-in-out, background .2s ease-in-out
+}
+
+header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    padding: 32px 0 24px;
+}
+
+header h2 {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+header p {
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+header h2 a.gseng {
+    color: #1483fa;
+    background: rgba(100, 168, 240, .05);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0 4px;
+    margin: 0;
+    border-radius: 6px;
+    line-height: 1.4
+}
+
+header h2 a.gseng:hover {
+    background: rgba(100, 168, 240, .15);
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 18px;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+h4 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+p {
+    font-size: 18px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
