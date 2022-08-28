@@ -38,6 +38,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/site.css">
         <script src="scripts/c5873500b1.js"></script>
+        <script src="scripts/utils.js"></script>
         <title>Andreas Hailu — Software Engineer</title>
     </head>
 
@@ -60,12 +61,13 @@
                     <h2>Technologies<i class="highlight fas fa-toolbox fa-xs ml-1"></i></h2>
                     <h4 class="phrase font-italic">Wands are only as powerful as the wizards who use them.</h4>
                     <p>
-                        <strong>Languages:</strong> Java EE, C++, C, Bash Shell Script, Python, TypeScript, JavaScript, HTML, SQL<br>
-                        <strong>Frameworks & platforms:</strong> Unix, HDFS, Jersey, Flink, Kafka, HBase, Avro, Parquet, MapReduce, ZooKeeper, Tomcat, 
-                        Hive, Sybase IQ, ElasticSearch<br>
-                        <strong>Tools:</strong> Git, GitLab, Gradle, Maven, JIRA, Subversion<br>
-                        <strong>Skills:</strong> Distributed & highly available systems, RESTful services, test automation,
-                        data governance, product management & SDLC, Agile development practices
+                        <strong>Languages:</strong><script>document.write(sortSkills(['Java EE', 'C++', 'C', 'Bash Shell Script', 'Python', 'TypeScript',
+                            'JavaScript', 'HTML', 'SQL']))</script><br>
+                        <strong>Frameworks & platforms:</strong><script>document.write(sortSkills(['Unix', 'HDFS', 'Jersey', 'Apache Flink', 'Apache Iceberg', 'Apache Kafka',
+                            'Apache HBase', 'Apache Avro', 'Apache Parquet', 'MapReduce', 'ZooKeeper', 'Tomcat', 'Hive', 'Sybase IQ', 'Redshift', 'ElasticSearch']))</script><br>
+                        <strong>Tools:</strong><script>document.write(sortSkills(['Git', 'GitLab', 'Gradle', 'Maven', 'JIRA', 'Subversion']))</script><br>
+                        <strong>Skills:</strong><script>document.write(sortSkills(['Distributed & highly available systems', 'RESTful services', 'Test automation',
+                            'Data governance', 'Product management & SDLC', 'Agile development practices']))</script>
                     </p>
                 </div>
             </div>
@@ -78,7 +80,9 @@
                         <strong>Vice President, Software Engineer</strong> — Data Lake Engineering @ Goldman Sachs <span class="float-right work-date">January 2022 - Present</span>
                         <div>
                             Core development team | building firmwide data production, consumption, and governance platform</br>
-                            Responsible for core data processing product | developing automated & dynamic data pipelines | application orchestration | RESTful service layer
+                            Responsible for core data processing product | developing automated & dynamic data pipelines | application orchestration | RESTful service layer</br>
+                            <a target="_blank" href="https://www.flink-forward.org/sf-2022/conference-program#batch-processing-at-scale-with-flink---iceberg" rel="noopener noreferrer">Speaker @ Flink Forward 2022 - San Francisco</a>
+                            
                         </div>
                         <p>
                             <div class="history-muted">
