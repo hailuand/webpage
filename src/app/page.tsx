@@ -170,7 +170,7 @@ export default function Page() {
         <Section>
           <h2 className="text-xl font-bold">Technologies 🛠️</h2>
           <div className="flex flex-wrap gap-1">
-            {RESUME_DATA.technologies.toSorted().map((technology) => {
+            {RESUME_DATA.technologies.map((technology) => {
               return <Badge key={technology}>{technology}</Badge>;
             })}
           </div>

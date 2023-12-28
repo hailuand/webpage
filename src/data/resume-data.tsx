@@ -119,14 +119,13 @@ export const RESUME_DATA = {
     "Spring Boot",
     "Dropwizard",
     "Kubernetes",
-    "DynamoDB",
     "Snowflake",
     "Containers",
     "gRPC",
     "Confluent Schema Registry",
     "GitHub",
     "GitLab"
-  ],
+  ].sort(),
   talks: [
     {
       title: "Batch Processing at Scale with Flink & Iceberg",
