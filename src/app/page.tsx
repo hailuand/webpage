@@ -68,8 +68,8 @@ export default function Page() {
                   size="icon"
                   asChild
                 >
-                  <a href={social.url}>
-                    <social.icon className="h-4 w-4" target="_blank"/>
+                  <a href={social.url} target="_blank" rel="noopener noreferrer">
+                    <social.icon className="h-4 w-4"/>
                   </a>
                 </Button>
               ))}

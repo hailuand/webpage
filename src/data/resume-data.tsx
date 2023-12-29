@@ -167,6 +167,7 @@ export const RESUME_DATA = {
     {
       title: "chatRPC",
       techStack: [
+        "Personal",
         "Java",
         "gRPC",
       ],
@@ -174,6 +175,19 @@ export const RESUME_DATA = {
         "Chat server supporting multiple clients built using gRPC framework.",
       link: {
         href: "https://github.com/hailuand/chatRPC",
+      },
+    },
+    {
+      title: "Webpage",
+      techStack: [
+        "Personal",
+        "Next.js",
+        "React",
+      ],
+      description:
+        "Personal webpage written using Next.js, shadcn/ui, deployed on Vercel",
+      link: {
+        href: "https://github.com/hailuand/webpage",
       },
     }
   ],
