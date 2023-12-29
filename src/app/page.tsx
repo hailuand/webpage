@@ -29,6 +29,7 @@ export default function Page() {
                 className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
                 href={RESUME_DATA.locationLink}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <GlobeIcon className="h-3 w-3" />
                 {RESUME_DATA.location}
@@ -54,7 +55,7 @@ export default function Page() {
                   size="icon"
                   asChild
                 >
-                  <a href={`tel:${RESUME_DATA.contact.tel}`} target="_blank">
+                  <a href={`tel:${RESUME_DATA.contact.tel}`} target="_blank" rel="noopener noreferrer">
                     <PhoneIcon className="h-4 w-4" />
                   </a>
                 </Button>
@@ -106,7 +107,7 @@ export default function Page() {
                 <CardHeader>
                   <div className="flex items-center justify-between gap-x-2 text-base">
                     <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
-                      <a className="hover:underline" href={work.link} target="_blank">
+                      <a className="hover:underline" href={work.link} target="_blank" rel="noopener noreferrer">
                         {work.company}
                       </a>
 
@@ -214,7 +215,7 @@ export default function Page() {
               <Card key={certification.title}>
                 <CardContent className="mt-2 text-xs">
                   <h4 className="font-mono text-sm leading-none">
-                    <a className="hover:underline" href={certification.link} target="_blank">
+                    <a className="hover:underline" href={certification.link} target="_blank" rel="noopener noreferrer">
                         {certification.title}
                     </a>
                   </h4>
