@@ -28,7 +28,7 @@ export const RESUME_DATA = {
       },
       {
         name: "Resume",
-        url: "https://docs.google.com/document/d/1qwRTeEDuptTExalH9kxsWOwaKZj62pSrjdCAoqhus2Y/edit?usp=share_link",
+        url: "https://drive.google.com/file/d/1gxodq48W6zjCQcTReIB3eC_YPBMNR8ER/view?usp=share_link",
         icon: ResumeIcon,
       }
     ],
