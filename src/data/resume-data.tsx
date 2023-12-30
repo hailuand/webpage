@@ -1,4 +1,5 @@
 import { GitHubIcon } from "@/components/icons/GitHubIcon";
+import { ResumeIcon } from "@/components/icons/ResumeIcon";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 
 export const RESUME_DATA = {
@@ -24,6 +25,11 @@ export const RESUME_DATA = {
         name: "LinkedIn",
         url: "https://www.linkedin.com/in/hailuand/",
         icon: LinkedInIcon,
+      },
+      {
+        name: "Resume",
+        url: "https://docs.google.com/document/d/1qwRTeEDuptTExalH9kxsWOwaKZj62pSrjdCAoqhus2Y/edit?usp=share_link",
+        icon: ResumeIcon,
       }
     ],
   },
@@ -185,7 +191,7 @@ export const RESUME_DATA = {
         "React",
       ],
       description:
-        "Personal webpage written using Next.js, shadcn/ui, deployed on Vercel",
+        "Personal webpage written using Next.js, shadcn/ui, deployed on Vercel.",
       link: {
         href: "https://github.com/hailuand/webpage",
       },
