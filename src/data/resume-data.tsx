@@ -98,8 +98,7 @@ export const RESUME_DATA = {
     "TypeScript",
     "JavaScript",
     "C++",
-    "C",
-    "SQL"
+    "C"
   ],
   technologies: [
     "Apache Flink",
@@ -132,7 +131,8 @@ export const RESUME_DATA = {
     "gRPC",
     "Confluent Schema Registry",
     "GitHub",
-    "GitLab"
+    "GitLab",
+    "SQL"
   ].sort(),
   talks: [
     {
