@@ -10,7 +10,7 @@ export const RESUME_DATA = {
   about:
     "Software Engineer",
   summary:
-    "I've built enterprise-grade distributed systems and applications for the past 8 years, ensuring developer productivity and code quality as part of the process. Currently, I work mostly with Java, TypeScript, and Amazon Web Services.",
+    "I've worked on data-intensive distributed systems and enterprise applications for the past 8 years, ensuring developer productivity and code quality.",
   avatarUrl: "https://media.licdn.com/dms/image/D4E03AQFQQj1CCK7a6g/profile-displayphoto-shrink_400_400/0/1690816492804?e=1709164800&v=beta&t=cFnphYlZqxXuRxkERCcsWFESiAK_DySiVSHD9vIl1yg",
   contact: {
     email: "andreashailu@gmail.com",
@@ -49,7 +49,7 @@ export const RESUME_DATA = {
       start: "May 2023",
       end: "present",
       description:
-        "Core Data Engineering - Lead for services orchestration of next generation of firm core data platform built on cloud-native & cloud-hosted Lakehouse architecture.",
+        "Core Data Engineering - Event management & data availability component lead for next generation of data platform built on cloud-native Lakehouse architecture.",
     },
     {
       company: "",
@@ -108,6 +108,8 @@ export const RESUME_DATA = {
     "CI/CD",
     "Git",
     "Docker",
+    "PostgreSQL",
+    "MySQL",
     "Node",
     "JUnit",
     "Maven",
@@ -122,7 +124,7 @@ export const RESUME_DATA = {
     "HDFS",
     "MapReduce",
     "AWS",
-    "Spring Boot",
+    "Spring",
     "Dropwizard",
     "Kubernetes",
     "Snowflake",
