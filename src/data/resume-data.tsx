@@ -11,7 +11,7 @@ export const RESUME_DATA = {
     "Software Engineer",
   summary:
     "I've worked on data-intensive distributed systems and enterprise applications for the past 8 years, ensuring developer productivity and code quality.",
-  avatarUrl: "https://media.licdn.com/dms/image/D4E03AQFQQj1CCK7a6g/profile-displayphoto-shrink_400_400/0/1690816492804?e=1709164800&v=beta&t=cFnphYlZqxXuRxkERCcsWFESiAK_DySiVSHD9vIl1yg",
+  avatarUrl: "https://raw.githubusercontent.com/hailuand/webpage/master/src/app/profile.jpg",
   contact: {
     email: "andreashailu@gmail.com",
     tel: "",
