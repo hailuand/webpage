@@ -147,6 +147,20 @@ export const RESUME_DATA = {
   ],
   projects: [
     {
+      title: "CorgiMQ",
+      techStack: [
+        "Open Source",
+        "Java",
+        "JDBC",
+        "RDBMS"
+      ],
+      description:
+        "A lightweight Java message queue library on JDBC.",
+      link: {
+        href: "https://github.com/hailuand/corgimq",
+      },
+    }, 
+    {
       title: "Apache Avro",
       techStack: [
         "Open Source",
