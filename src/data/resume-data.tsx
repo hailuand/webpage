@@ -155,7 +155,7 @@ export const RESUME_DATA = {
         "RDBMS"
       ],
       description:
-        "A lightweight Java message queue library on JDBC.",
+        "An open source lightweight Java message queue library built on your RDBMS.",
       link: {
         href: "https://github.com/hailuand/corgimq",
       },
