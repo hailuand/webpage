@@ -1,0 +1,134 @@
+{
+  "personal": {
+    "name": "John Doe",
+    "title": "Software Engineer",
+    "description": "Software Engineer specializing in building exceptional digital experiences",
+    "profileImage": "/placeholder.svg?height=400&width=400",
+    "resumeUrl": "https://drive.google.com/file/d/1gxodq48W6zjCQcTReIB3eC_YPBMNR8ER/view?usp=drive_link"
+  },
+  "skills": [
+    {
+      "name": "Java",
+      "category": "language",
+      "color": "primary"
+    },
+    {
+      "name": "Python",
+      "category": "language",
+      "color": "secondary"
+    },
+    {
+      "name": "Node.js",
+      "category": "backend",
+      "color": "accent"
+    },
+    {
+      "name": "Next.js",
+      "category": "framework",
+      "color": "highlight"
+    },
+    {
+      "name": "GraphQL",
+      "category": "api",
+      "color": "primary"
+    },
+    {
+      "name": "AWS",
+      "category": "cloud",
+      "color": "secondary"
+    }
+  ],
+  "experience": [
+    {
+      "id": "current",
+      "title": "Senior Software Engineer",
+      "company": "Microsoft",
+      "period": "2024 - Present",
+      "isCurrent": true,
+      "description": "Building an enterprise grade cutting-edge information retrieval system on Azure empowered with AI 🔎",
+      "technologies": ["C#", "Python", "Azure", "Artificial Intelligence"],
+      "side": "left"
+    },
+    {
+      "id": "2023",
+      "title": "Vice President Software Engineer & Team Lead",
+      "company": "Goldman Sachs",
+      "period": "2023 - 2024",
+      "isCurrent": false,
+      "description": "Core Data Engineering - Event management & data availability component lead for next generation of data platform built on cloud-native Lakehouse architecture.",
+      "technologies": ["Java", "Python", "AWS", "Flink"],
+      "side": "right"
+    }, 
+    {
+      "id": "2019",
+      "title": "Associate Software Engineer",
+      "company": "Goldman Sachs",
+      "period": "2019 - 2021",
+      "isCurrent": false,
+      "description": "Data Lake Engineering - Contributed to enterprise Data Lake platform ingest & catalog services. Migrated ingest framework from MapReduce to Apache Flink.",
+      "technologies": ["Java", "Hadoop", "Flink"],
+      "side": "left"
+    },
+    {
+      "id": "2016",
+      "title": "Analyst Software Engineer",
+      "company": "Goldman Sachs",
+      "period": "2016 - 2019",
+      "isCurrent": false,
+      "description": "Data Lake Engineering - Contributed to frontend + core backend metadata services for data cataloging, governance, and refinement for early stage enterprise Data Lake platform.",
+      "technologies": ["TypeScript", "JavaScript", "Node"],
+      "side": "right"
+    }
+  ],
+  "projects": [
+    {
+      "id": "ecommerce",
+      "title": "E-commerce Platform",
+      "description": "A full-featured e-commerce platform with payment processing, inventory management, and analytics.",
+      "image": "/placeholder.svg?height=200&width=400",
+      "technologies": ["Next.js", "Stripe", "Prisma"],
+      "githubUrl": "https://github.com",
+      "liveUrl": "https://example.com",
+      "color": "primary"
+    },
+    {
+      "id": "ai-content",
+      "title": "AI Content Generator",
+      "description": "An AI-powered application that generates high-quality content for blogs, social media, and more.",
+      "image": "/placeholder.svg?height=200&width=400",
+      "technologies": ["React", "OpenAI API", "Node.js"],
+      "githubUrl": "https://github.com",
+      "liveUrl": "https://example.com",
+      "color": "secondary"
+    },
+    {
+      "id": "task-management",
+      "title": "Task Management App",
+      "description": "A collaborative task management application with real-time updates, notifications, and analytics.",
+      "image": "/placeholder.svg?height=200&width=400",
+      "technologies": ["TypeScript", "Firebase", "Tailwind CSS"],
+      "githubUrl": "https://github.com",
+      "liveUrl": "https://example.com",
+      "color": "accent"
+    }
+  ],
+  "contact": {
+    "email": "andreashailu@gmail.com",
+    "linkedin": {
+      "url": "https://linkedin.com/in/andreashailu",
+      "display": "linkedin.com/in/andreashailu"
+    },
+    "github": {
+      "url": "https://github.com",
+      "display": "github.com/hailuand"
+    },
+    "twitter": {
+      "url": "https://twitter.com",
+      "display": "@johndoe"
+    }
+  },
+  "social": {
+    "github": "https://github.com/hailuand",
+    "linkedin": "https://linkedin.com/in/andreashailu"
+  }
+}
