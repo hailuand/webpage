@@ -366,9 +366,9 @@ export default function Home() {
               className="mb-12 text-center"
             >
               <h2 className="mb-3 bg-gradient-dark-accent bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl">
-                Projects
+                Projects & Open Source Contributions
               </h2>
-              <p className="mx-auto max-w-[600px] text-muted-foreground">Some of my notable work and side projects</p>
+              <p className="mx-auto max-w-[600px] text-muted-foreground">Some notable work and side projects</p>
             </motion.div>
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -410,20 +410,89 @@ export default function Home() {
                         ))}
                       </div>
                       <div className="mt-6">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className={`gap-1 rounded-full ${getProjectButtonClasses(project.color)}`}
-                          asChild
-                        >
-                          <Link href={project.liveUrl} target="_blank" rel="noreferrer">
-                            Live Demo <ExternalLink className="h-3 w-3" />
-                          </Link>
-                        </Button>
+                        {project.liveUrl ? (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className={`gap-1 rounded-full ${getProjectButtonClasses(project.color)}`}
+                            asChild
+                          >
+                            <Link href={project.liveUrl} target="_blank" rel="noreferrer">
+                              Live Demo <ExternalLink className="h-3 w-3" />
+                            </Link>
+                          </Button>
+                        ) : (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className={`gap-1 rounded-full ${getProjectButtonClasses(project.color)}`}
+                            asChild
+                          >
+                            <Link href={project.githubUrl} target="_blank" rel="noreferrer">
+                              GitHub <Github className="h-3 w-3" />
+                            </Link>
+                          </Button>
+                        )}
                       </div>
                     </CardContent>
                   </Card>
                 </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Talks Section */}
+        <section
+          id="talks"
+          ref={el => { if (sectionsRef.current) sectionsRef.current.talks = el; }}
+          className="relative py-24 sm:py-32"
+        >
+          <div className="absolute inset-0 -z-10 overflow-hidden">
+            <div className="absolute top-[10%] -right-[10%] h-[400px] w-[400px] rounded-full bg-dark-accent/10 blur-3xl" />
+            <div className="absolute bottom-[10%] -left-[10%] h-[300px] w-[300px] rounded-full bg-dark-highlight/10 blur-3xl" />
+          </div>
+
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="mb-12 text-center"
+            >
+              <h2 className="mb-3 bg-gradient-to-r from-green-400 to-green-300 bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl">
+                Talks
+              </h2>
+              <p className="mx-auto max-w-[600px] text-muted-foreground">
+                Conference talks and presentations I've given
+              </p>
+            </motion.div>
+
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {websiteData.talks.map((talk) => (
+                <Card key={talk.id} className="h-full overflow-hidden border-none bg-background/50 shadow-lg backdrop-blur-sm">
+                  <CardContent className="p-6 flex flex-col h-full">
+                    <CardTitle className="mb-2 text-lg font-bold flex items-center gap-2">
+                      <span>{talk.title}</span>
+                      <Link href={talk.link} target="_blank" rel="noreferrer">
+                        <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
+                          <ExternalLink className="h-4 w-4" />
+                          <span className="sr-only">View Talk</span>
+                        </Button>
+                      </Link>
+                    </CardTitle>
+                    <CardDescription className="mb-2 text-sm text-muted-foreground">
+                      {talk.event} &middot; {talk.date}
+                    </CardDescription>
+                    <p className="mb-4 flex-1">{talk.description}</p>
+                    <Button asChild variant="outline" size="sm" className="rounded-full mt-auto">
+                      <Link href={talk.link} target="_blank" rel="noreferrer">
+                        Watch Talk <ExternalLink className="h-3 w-3 ml-1" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
@@ -515,12 +584,6 @@ export default function Home() {
                       <div className="mt-12">
                         <p className="mb-4 text-white/80">Follow me on social media</p>
                         <div className="flex gap-4">
-                          <Link href={websiteData.social.github} target="_blank" rel="noreferrer">
-                            <Button size="icon" className="rounded-full bg-white/10 text-white hover:bg-white/20">
-                              <Github className="h-5 w-5" />
-                              <span className="sr-only">GitHub</span>
-                            </Button>
-                          </Link>
                           <Link href={websiteData.social.linkedin} target="_blank" rel="noreferrer">
                             <Button size="icon" className="rounded-full bg-white/10 text-white hover:bg-white/20">
                               <Linkedin className="h-5 w-5" />
