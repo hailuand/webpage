@@ -285,7 +285,7 @@ export default function Home() {
 
               {/* Timeline items */}
               <div className="space-y-12">
-                {websiteData.experience.map((role, index) => (
+                {websiteData.experience.map((role) => (
                   <motion.div
                     key={role.id}
                     initial={{ opacity: 0, y: 20 }}
@@ -521,7 +521,7 @@ export default function Home() {
                 Contact
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground">
-                Let's connect and discuss how we can work together
+                Let's connect
               </p>
             </motion.div>
 
