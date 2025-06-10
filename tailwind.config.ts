@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
@@ -88,18 +88,22 @@ const config = {
         "gradient-light-primary": "linear-gradient(135deg, #3B82F6, #06B6D4)",
         "gradient-light-secondary": "linear-gradient(135deg, #06B6D4, #8B5CF6)",
         "gradient-light-accent": "linear-gradient(135deg, #8B5CF6, #F59E0B)",
-        "gradient-light-hero": "linear-gradient(135deg, #3B82F6, #06B6D4, #8B5CF6)",
-        "gradient-light-progress": "linear-gradient(90deg, #3B82F6, #06B6D4, #8B5CF6)",
+        "gradient-light-hero":
+          "linear-gradient(135deg, #3B82F6, #06B6D4, #8B5CF6)",
+        "gradient-light-progress":
+          "linear-gradient(90deg, #3B82F6, #06B6D4, #8B5CF6)",
         // Dark mode gradients
         "gradient-dark-primary": "linear-gradient(135deg, #8B5CF6, #EC4899)",
         "gradient-dark-secondary": "linear-gradient(135deg, #EC4899, #F97316)",
         "gradient-dark-accent": "linear-gradient(135deg, #F97316, #EAB308)",
-        "gradient-dark-hero": "linear-gradient(135deg, #8B5CF6, #EC4899, #F97316)",
-        "gradient-dark-progress": "linear-gradient(90deg, #8B5CF6, #EC4899, #F97316)",
+        "gradient-dark-hero":
+          "linear-gradient(135deg, #8B5CF6, #EC4899, #F97316)",
+        "gradient-dark-progress":
+          "linear-gradient(90deg, #8B5CF6, #EC4899, #F97316)",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;

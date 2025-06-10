@@ -1,94 +1,121 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Github, Linkedin, Mail, ExternalLink, ArrowDown, Menu } from "lucide-react"
-import { motion } from "framer-motion"
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  ExternalLink,
+  ArrowDown,
+  Menu,
+} from "lucide-react";
+import { motion } from "framer-motion";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import websiteData from "@/data/website-data.json"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import websiteData from "@/data/website-data.json";
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState("about")
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const [activeSection, setActiveSection] = useState("about");
+  const [scrollProgress, setScrollProgress] = useState(0);
   const sectionsRef = useRef<{ [key: string]: HTMLElement | null }>({
     about: null,
     experience: null,
     projects: null,
     contact: null,
-  })
+  });
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 3
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
 
       // Update scroll progress for progress bar
-      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight
-      const progress = (window.scrollY / scrollHeight) * 100
-      setScrollProgress(progress)
+      const scrollHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / scrollHeight) * 100;
+      setScrollProgress(progress);
 
       // Determine active section
       for (const section of Object.keys(sectionsRef.current)) {
-        const element = sectionsRef.current[section]
-        if (!element) continue
+        const element = sectionsRef.current[section];
+        if (!element) continue;
 
-        const { offsetTop, offsetHeight } = element
-        if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-          setActiveSection(section)
-          break
+        const { offsetTop, offsetHeight } = element;
+        if (
+          scrollPosition >= offsetTop &&
+          scrollPosition < offsetTop + offsetHeight
+        ) {
+          setActiveSection(section);
+          break;
         }
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    handleScroll() // Initial check
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
 
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const section = sectionsRef.current[sectionId]
+    const section = sectionsRef.current[sectionId];
     if (section) {
       window.scrollTo({
         top: section.offsetTop - 80,
         behavior: "smooth",
-      })
+      });
     }
-  }
+  };
 
   const getColorClasses = (color: string) => {
     const colorMap = {
       primary: "bg-dark-primary/10 text-dark-primary hover:bg-dark-primary/20",
-      secondary: "bg-dark-secondary/10 text-dark-secondary hover:bg-dark-secondary/20",
+      secondary:
+        "bg-dark-secondary/10 text-dark-secondary hover:bg-dark-secondary/20",
       accent: "bg-dark-accent/10 text-dark-accent hover:bg-dark-accent/20",
-      highlight: "bg-dark-highlight/10 text-dark-highlight hover:bg-dark-highlight/20",
-    }
-    return colorMap[color as keyof typeof colorMap] || colorMap.primary
-  }
+      highlight:
+        "bg-dark-highlight/10 text-dark-highlight hover:bg-dark-highlight/20",
+    };
+    return colorMap[color as keyof typeof colorMap] || colorMap.primary;
+  };
 
   const getProjectButtonClasses = (color: string) => {
     const colorMap = {
-      primary: "border-dark-primary/20 bg-dark-primary/10 text-dark-primary hover:bg-dark-primary/20",
-      secondary: "border-dark-secondary/20 bg-dark-secondary/10 text-dark-secondary hover:bg-dark-secondary/20",
-      accent: "border-dark-accent/20 bg-dark-accent/10 text-dark-accent hover:bg-dark-accent/20",
-    }
-    return colorMap[color as keyof typeof colorMap] || colorMap.primary
-  }
+      primary:
+        "border-dark-primary/20 bg-dark-primary/10 text-dark-primary hover:bg-dark-primary/20",
+      secondary:
+        "border-dark-secondary/20 bg-dark-secondary/10 text-dark-secondary hover:bg-dark-secondary/20",
+      accent:
+        "border-dark-accent/20 bg-dark-accent/10 text-dark-accent hover:bg-dark-accent/20",
+    };
+    return colorMap[color as keyof typeof colorMap] || colorMap.primary;
+  };
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-background to-background/95">
       {/* Progress bar */}
-      <div className="fixed top-0 left-0 z-50 h-1 bg-gradient-dark-progress" style={{ width: `${scrollProgress}%` }} />
+      <div
+        className="fixed left-0 top-0 z-50 h-1 bg-gradient-dark-progress"
+        style={{ width: `${scrollProgress}%` }}
+      />
 
       {/* Header */}
       <header className="fixed top-0 z-40 w-full border-b bg-background/80 backdrop-blur-md">
         <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="text-xl font-bold tracking-tight">
-            <span className="bg-gradient-dark-primary bg-clip-text text-transparent">{websiteData.personal.name}</span>
+            <span className="bg-gradient-dark-primary bg-clip-text text-transparent">
+              {websiteData.personal.name}
+            </span>
           </Link>
 
           <nav className="hidden items-center space-x-8 text-sm font-medium md:flex">
@@ -97,7 +124,9 @@ export default function Home() {
                 key={section}
                 onClick={() => scrollToSection(section)}
                 className={`relative transition-colors hover:text-foreground/80 ${
-                  activeSection === section ? "text-foreground" : "text-muted-foreground"
+                  activeSection === section
+                    ? "text-foreground"
+                    : "text-muted-foreground"
                 }`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
@@ -114,13 +143,21 @@ export default function Home() {
 
           <div className="flex items-center gap-2 md:gap-4">
             <div className="hidden md:flex md:items-center md:gap-2">
-              <Link href={websiteData.social.github} target="_blank" rel="noreferrer">
+              <Link
+                href={websiteData.social.github}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <Button variant="ghost" size="icon" className="rounded-full">
                   <Github className="h-4 w-4" />
                   <span className="sr-only">GitHub</span>
                 </Button>
               </Link>
-              <Link href={websiteData.social.linkedin} target="_blank" rel="noreferrer">
+              <Link
+                href={websiteData.social.linkedin}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <Button variant="ghost" size="icon" className="rounded-full">
                   <Linkedin className="h-4 w-4" />
                   <span className="sr-only">LinkedIn</span>
@@ -137,26 +174,38 @@ export default function Home() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <nav className="flex flex-col gap-6 pt-16">
-                  {["about", "experience", "projects", "contact"].map((section) => (
-                    <button
-                      key={section}
-                      onClick={() => {
-                        scrollToSection(section)
-                        document.querySelector('[data-state="open"]')?.setAttribute("data-state", "closed")
-                      }}
-                      className="flex items-center text-lg font-medium"
-                    >
-                      {section.charAt(0).toUpperCase() + section.slice(1)}
-                    </button>
-                  ))}
+                  {["about", "experience", "projects", "contact"].map(
+                    (section) => (
+                      <button
+                        key={section}
+                        onClick={() => {
+                          scrollToSection(section);
+                          document
+                            .querySelector('[data-state="open"]')
+                            ?.setAttribute("data-state", "closed");
+                        }}
+                        className="flex items-center text-lg font-medium"
+                      >
+                        {section.charAt(0).toUpperCase() + section.slice(1)}
+                      </button>
+                    ),
+                  )}
                   <div className="mt-8 flex items-center gap-4">
-                    <Link href={websiteData.social.github} target="_blank" rel="noreferrer">
+                    <Link
+                      href={websiteData.social.github}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <Button variant="ghost" size="icon">
                         <Github className="h-5 w-5" />
                         <span className="sr-only">GitHub</span>
                       </Button>
                     </Link>
-                    <Link href={websiteData.social.linkedin} target="_blank" rel="noreferrer">
+                    <Link
+                      href={websiteData.social.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <Button variant="ghost" size="icon">
                         <Linkedin className="h-5 w-5" />
                         <span className="sr-only">LinkedIn</span>
@@ -184,8 +233,8 @@ export default function Home() {
           className="relative min-h-screen overflow-hidden pt-16"
         >
           <div className="absolute inset-0 -z-10 overflow-hidden">
-            <div className="absolute -top-[40%] -right-[10%] h-[500px] w-[500px] rounded-full bg-dark-primary/10 blur-3xl" />
-            <div className="absolute top-[20%] -left-[10%] h-[300px] w-[300px] rounded-full bg-dark-secondary/10 blur-3xl" />
+            <div className="absolute -right-[10%] -top-[40%] h-[500px] w-[500px] rounded-full bg-dark-primary/10 blur-3xl" />
+            <div className="absolute -left-[10%] top-[20%] h-[300px] w-[300px] rounded-full bg-dark-secondary/10 blur-3xl" />
           </div>
 
           <div className="container relative flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center py-12">
@@ -218,7 +267,10 @@ export default function Home() {
               </p>
               <div className="mb-8 flex flex-wrap justify-center gap-2">
                 {websiteData.skills.map((skill) => (
-                  <Badge key={skill.name} className={getColorClasses(skill.color)}>
+                  <Badge
+                    key={skill.name}
+                    className={getColorClasses(skill.color)}
+                  >
                     {skill.name}
                   </Badge>
                 ))}
@@ -247,7 +299,7 @@ export default function Home() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full animate-bounce"
+                className="animate-bounce rounded-full"
                 onClick={() => scrollToSection("experience")}
               >
                 <ArrowDown className="h-5 w-5" />
@@ -260,7 +312,9 @@ export default function Home() {
         {/* Experience Section */}
         <section
           id="experience"
-          ref={el => { sectionsRef.current.experience = el; }}
+          ref={(el) => {
+            sectionsRef.current.experience = el;
+          }}
           className="relative py-24 sm:py-32"
         >
           <div className="container">
@@ -281,7 +335,7 @@ export default function Home() {
 
             <div className="relative mx-auto max-w-4xl">
               {/* Timeline line */}
-              <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-dark-hero -translate-x-1/2" />
+              <div className="absolute bottom-0 left-1/2 top-0 w-0.5 -translate-x-1/2 bg-gradient-dark-hero" />
 
               {/* Timeline items */}
               <div className="space-y-12">
@@ -295,14 +349,16 @@ export default function Home() {
                     className={`relative flex flex-col md:flex-row ${role.side === "right" ? "md:flex-row-reverse" : ""} items-center md:items-stretch`}
                   >
                     {/* Timeline circle/badge */}
-                    <div className="w-12 flex-shrink-0 flex flex-col items-center justify-center relative z-10">
+                    <div className="relative z-10 flex w-12 flex-shrink-0 flex-col items-center justify-center">
                       {role.isCurrent ? (
                         <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-dark-primary">
                           <div className="h-3 w-3 rounded-full bg-white" />
                         </div>
                       ) : (
                         <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-background bg-gradient-dark-primary text-white shadow-lg">
-                          <span className="text-xs font-bold">{role.period.split("-")[0].trim()}</span>
+                          <span className="text-xs font-bold">
+                            {role.period.split("-")[0].trim()}
+                          </span>
                         </div>
                       )}
                     </div>
@@ -314,11 +370,15 @@ export default function Home() {
                         {role.isCurrent && (
                           <div className="absolute inset-0 bg-gradient-to-r from-dark-primary/10 to-dark-secondary/10" />
                         )}
-                        <CardHeader className={role.isCurrent ? "relative" : ""}>
+                        <CardHeader
+                          className={role.isCurrent ? "relative" : ""}
+                        >
                           {role.isCurrent ? (
                             <div className="flex items-center justify-between">
                               <CardTitle>{role.title}</CardTitle>
-                              <Badge className="bg-gradient-dark-primary text-white">Current</Badge>
+                              <Badge className="bg-gradient-dark-primary text-white">
+                                Current
+                              </Badge>
                             </div>
                           ) : (
                             <CardTitle>{role.title}</CardTitle>
@@ -327,7 +387,9 @@ export default function Home() {
                             {role.company} • {role.period}
                           </CardDescription>
                         </CardHeader>
-                        <CardContent className={`space-y-2 ${role.isCurrent ? "relative" : ""}`}>
+                        <CardContent
+                          className={`space-y-2 ${role.isCurrent ? "relative" : ""}`}
+                        >
                           <p>{role.description}</p>
                           <div className="flex flex-wrap gap-2">
                             {role.technologies.map((tech) => (
@@ -349,12 +411,14 @@ export default function Home() {
         {/* Projects Section */}
         <section
           id="projects"
-          ref={el => { sectionsRef.current.projects = el; }}
+          ref={(el) => {
+            sectionsRef.current.projects = el;
+          }}
           className="relative py-24 sm:py-32"
         >
           <div className="absolute inset-0 -z-10 overflow-hidden">
-            <div className="absolute -top-[20%] -left-[10%] h-[500px] w-[500px] rounded-full bg-dark-secondary/5 blur-3xl" />
-            <div className="absolute bottom-[10%] -right-[20%] h-[400px] w-[400px] rounded-full bg-dark-primary/5 blur-3xl" />
+            <div className="absolute -left-[10%] -top-[20%] h-[500px] w-[500px] rounded-full bg-dark-secondary/5 blur-3xl" />
+            <div className="absolute -right-[20%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-dark-primary/5 blur-3xl" />
           </div>
 
           <div className="container">
@@ -368,7 +432,9 @@ export default function Home() {
               <h2 className="mb-3 bg-gradient-dark-accent bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl">
                 Projects & Open Source Contributions
               </h2>
-              <p className="mx-auto max-w-[600px] text-muted-foreground">Some notable work and side projects</p>
+              <p className="mx-auto max-w-[600px] text-muted-foreground">
+                Notable work and side projects 🚧
+              </p>
             </motion.div>
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -380,7 +446,7 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
                   viewport={{ once: true, margin: "-100px" }}
                 >
-                  <Card className="group h-full overflow-hidden border-none bg-background/50 shadow-lg transition-all duration-300 hover:shadow-xl backdrop-blur-sm">
+                  <Card className="group h-full overflow-hidden border-none bg-background/50 shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-xl">
                     <div className="relative overflow-hidden">
                       <Image
                         src={project.image || "/placeholder.svg"}
@@ -394,17 +460,31 @@ export default function Home() {
                     <CardContent className="p-6">
                       <CardTitle className="flex items-center justify-between">
                         <span>{project.title}</span>
-                        <Link href={project.githubUrl} target="_blank" rel="noreferrer">
-                          <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
+                        <Link
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8 rounded-full"
+                          >
                             <Github className="h-4 w-4" />
                             <span className="sr-only">GitHub</span>
                           </Button>
                         </Link>
                       </CardTitle>
-                      <CardDescription className="mt-2 line-clamp-3">{project.description}</CardDescription>
+                      <CardDescription className="mt-2 line-clamp-3">
+                        {project.description}
+                      </CardDescription>
                       <div className="mt-4 flex flex-wrap gap-2">
                         {project.technologies.map((tech) => (
-                          <Badge key={tech} variant="outline" className="bg-background/50">
+                          <Badge
+                            key={tech}
+                            variant="outline"
+                            className="bg-background/50"
+                          >
                             {tech}
                           </Badge>
                         ))}
@@ -417,7 +497,11 @@ export default function Home() {
                             className={`gap-1 rounded-full ${getProjectButtonClasses(project.color)}`}
                             asChild
                           >
-                            <Link href={project.liveUrl} target="_blank" rel="noreferrer">
+                            <Link
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
                               Live Demo <ExternalLink className="h-3 w-3" />
                             </Link>
                           </Button>
@@ -428,7 +512,11 @@ export default function Home() {
                             className={`gap-1 rounded-full ${getProjectButtonClasses(project.color)}`}
                             asChild
                           >
-                            <Link href={project.githubUrl} target="_blank" rel="noreferrer">
+                            <Link
+                              href={project.githubUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
                               GitHub <Github className="h-3 w-3" />
                             </Link>
                           </Button>
@@ -445,12 +533,14 @@ export default function Home() {
         {/* Talks Section */}
         <section
           id="talks"
-          ref={el => { if (sectionsRef.current) sectionsRef.current.talks = el; }}
+          ref={(el) => {
+            if (sectionsRef.current) sectionsRef.current.talks = el;
+          }}
           className="relative py-24 sm:py-32"
         >
           <div className="absolute inset-0 -z-10 overflow-hidden">
-            <div className="absolute top-[10%] -right-[10%] h-[400px] w-[400px] rounded-full bg-dark-accent/10 blur-3xl" />
-            <div className="absolute bottom-[10%] -left-[10%] h-[300px] w-[300px] rounded-full bg-dark-highlight/10 blur-3xl" />
+            <div className="absolute -right-[10%] top-[10%] h-[400px] w-[400px] rounded-full bg-dark-accent/10 blur-3xl" />
+            <div className="absolute -left-[10%] bottom-[10%] h-[300px] w-[300px] rounded-full bg-dark-highlight/10 blur-3xl" />
           </div>
 
           <div className="container">
@@ -471,12 +561,19 @@ export default function Home() {
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {websiteData.talks.map((talk) => (
-                <Card key={talk.id} className="h-full overflow-hidden border-none bg-background/50 shadow-lg backdrop-blur-sm">
-                  <CardContent className="p-6 flex flex-col h-full">
-                    <CardTitle className="mb-2 text-lg font-bold flex items-center gap-2">
+                <Card
+                  key={talk.id}
+                  className="h-full overflow-hidden border-none bg-background/50 shadow-lg backdrop-blur-sm"
+                >
+                  <CardContent className="flex h-full flex-col p-6">
+                    <CardTitle className="mb-2 flex items-center gap-2 text-lg font-bold">
                       <span>{talk.title}</span>
                       <Link href={talk.link} target="_blank" rel="noreferrer">
-                        <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-8 w-8 rounded-full"
+                        >
                           <ExternalLink className="h-4 w-4" />
                           <span className="sr-only">View Talk</span>
                         </Button>
@@ -486,9 +583,14 @@ export default function Home() {
                       {talk.event} &middot; {talk.date}
                     </CardDescription>
                     <p className="mb-4 flex-1">{talk.description}</p>
-                    <Button asChild variant="outline" size="sm" className="rounded-full mt-auto">
+                    <Button
+                      asChild
+                      variant="outline"
+                      size="sm"
+                      className="mt-auto rounded-full"
+                    >
                       <Link href={talk.link} target="_blank" rel="noreferrer">
-                        Watch Talk <ExternalLink className="h-3 w-3 ml-1" />
+                        Watch Talk <ExternalLink className="ml-1 h-3 w-3" />
                       </Link>
                     </Button>
                   </CardContent>
@@ -501,12 +603,14 @@ export default function Home() {
         {/* Contact Section */}
         <section
           id="contact"
-          ref={el => { sectionsRef.current.contact = el; }}
+          ref={(el) => {
+            sectionsRef.current.contact = el;
+          }}
           className="relative py-24 sm:py-32"
         >
           <div className="absolute inset-0 -z-10 overflow-hidden">
-            <div className="absolute top-[10%] -right-[20%] h-[500px] w-[500px] rounded-full bg-dark-primary/5 blur-3xl" />
-            <div className="absolute bottom-[10%] -left-[10%] h-[300px] w-[300px] rounded-full bg-dark-secondary/5 blur-3xl" />
+            <div className="absolute -right-[20%] top-[10%] h-[500px] w-[500px] rounded-full bg-dark-primary/5 blur-3xl" />
+            <div className="absolute -left-[10%] bottom-[10%] h-[300px] w-[300px] rounded-full bg-dark-secondary/5 blur-3xl" />
           </div>
 
           <div className="container">
@@ -517,11 +621,11 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
               className="mb-12 text-center"
             >
-              <h2 className="mb-3 bg-gradient-dark-highlight bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl">
+              <h2 className="bg-gradient-dark-highlight mb-3 bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl">
                 Contact
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground">
-                Let's connect
+                Let's connect 💬
               </p>
             </motion.div>
 
@@ -542,7 +646,9 @@ export default function Home() {
                           </div>
                           <div>
                             <p className="text-sm text-white/70">Email</p>
-                            <p className="font-medium">{websiteData.contact.email}</p>
+                            <p className="font-medium">
+                              {websiteData.contact.email}
+                            </p>
                           </div>
                         </div>
 
@@ -582,10 +688,19 @@ export default function Home() {
                       </div>
 
                       <div className="mt-12">
-                        <p className="mb-4 text-white/80">Follow me on social media</p>
+                        <p className="mb-4 text-white/80">
+                          Follow me!
+                        </p>
                         <div className="flex gap-4">
-                          <Link href={websiteData.social.linkedin} target="_blank" rel="noreferrer">
-                            <Button size="icon" className="rounded-full bg-white/10 text-white hover:bg-white/20">
+                          <Link
+                            href={websiteData.social.linkedin}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <Button
+                              size="icon"
+                              className="rounded-full bg-white/10 text-white hover:bg-white/20"
+                            >
                               <Linkedin className="h-5 w-5" />
                               <span className="sr-only">LinkedIn</span>
                             </Button>
@@ -604,16 +719,25 @@ export default function Home() {
       <footer className="border-t py-8">
         <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
           <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            © {new Date().getFullYear()} {websiteData.personal.name}. All rights reserved.
+            © {new Date().getFullYear()} {websiteData.personal.name}. All
+            rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <Link href={websiteData.social.github} target="_blank" rel="noreferrer">
+            <Link
+              href={websiteData.social.github}
+              target="_blank"
+              rel="noreferrer"
+            >
               <Button variant="ghost" size="icon" className="rounded-full">
                 <Github className="h-4 w-4" />
                 <span className="sr-only">GitHub</span>
               </Button>
             </Link>
-            <Link href={websiteData.social.linkedin} target="_blank" rel="noreferrer">
+            <Link
+              href={websiteData.social.linkedin}
+              target="_blank"
+              rel="noreferrer"
+            >
               <Button variant="ghost" size="icon" className="rounded-full">
                 <Linkedin className="h-4 w-4" />
                 <span className="sr-only">LinkedIn</span>
@@ -629,5 +753,5 @@ export default function Home() {
         </div>
       </footer>
     </div>
-  )
+  );
 }

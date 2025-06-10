@@ -50,20 +50,30 @@
       "company": "Microsoft",
       "period": "2024 - Present",
       "isCurrent": true,
-      "description": "Building an enterprise grade cutting-edge information retrieval system on Azure empowered with AI 🔎",
+      "description": "Building an enterprise grade cutting-edge information retrieval & search engine on Azure empowered with AI 🔎",
       "technologies": ["C#", "Python", "Azure", "Artificial Intelligence"],
       "side": "left"
     },
     {
       "id": "2023",
-      "title": "Vice President Software Engineer & Team Lead",
+      "title": "Vice President Software Engineer/Tech Lead",
       "company": "Goldman Sachs",
       "period": "2023 - 2024",
       "isCurrent": false,
       "description": "Core Data Engineering - event management & data availability component lead for next generation of data platform built on cloud-native Lakehouse architecture ☁️",
-      "technologies": ["Java", "Python", "AWS", "Flink"],
+      "technologies": ["Java", "Python", "AWS"],
       "side": "right"
-    }, 
+    },
+    {
+      "id": "2022",
+      "title": "Vice President Software Engineer/Tech Lead",
+      "company": "Goldman Sachs",
+      "period": "2022 - 2023",
+      "isCurrent": false,
+      "description": "Data Lake Engineering - tech lead for firmwide Data Lake platform ingest services ⚙️",
+      "technologies": ["Java", "Python", "Hadoop", "Flink"],
+      "side": "left"
+    },    
     {
       "id": "2019",
       "title": "Associate Software Engineer",
@@ -72,7 +82,7 @@
       "isCurrent": false,
       "description": "Data Lake Engineering - contributed to enterprise Data Lake platform ingest & catalog services. Migrated ingest framework from MapReduce to Apache Flink 🐿️",
       "technologies": ["Java", "Hadoop", "Flink"],
-      "side": "left"
+      "side": "right"
     },
     {
       "id": "2016",
@@ -82,7 +92,7 @@
       "isCurrent": false,
       "description": "Data Lake Engineering - contributed to frontend + core backend metadata services for data cataloging, governance, and refinement for early stage enterprise Data Lake platform ⚙️",
       "technologies": ["Java, TypeScript", "JavaScript", "Node"],
-      "side": "right"
+      "side": "left"
     }
   ],
   "projects": [
