@@ -656,7 +656,7 @@ export default function Home() {
                               className="font-medium hover:underline"
                             >
                               {websiteData.contact.email}
-                            </Link>                            
+                            </Link>
                           </div>
                         </div>
 
@@ -696,9 +696,7 @@ export default function Home() {
                       </div>
 
                       <div className="mt-12">
-                        <p className="mb-4 text-white/80">
-                          Follow me!
-                        </p>
+                        <p className="mb-4 text-white/80">Follow me!</p>
                         <div className="flex gap-4">
                           <Link
                             href={websiteData.social.linkedin}
