@@ -555,7 +555,7 @@ export default function Home() {
                 Talks
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground">
-                Conference talks and presentations I've given
+                Conference talks and presentations I've given 🗣️
               </p>
             </motion.div>
 
@@ -625,7 +625,7 @@ export default function Home() {
                 Contact
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground">
-                Let's connect 💬
+                Let's connect!
               </p>
             </motion.div>
 
@@ -646,9 +646,17 @@ export default function Home() {
                           </div>
                           <div>
                             <p className="text-sm text-white/70">Email</p>
-                            <p className="font-medium">
+                            {/* <p className="font-medium">
                               {websiteData.contact.email}
-                            </p>
+                            </p> */}
+                            <Link
+                              href={`mailto:${websiteData.contact.email}`}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="font-medium hover:underline"
+                            >
+                              {websiteData.contact.email}
+                            </Link>                            
                           </div>
                         </div>
 
