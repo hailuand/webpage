@@ -10,6 +10,7 @@ import {
   ExternalLink,
   ArrowDown,
   Menu,
+  Instagram,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -99,6 +100,19 @@ export default function Home() {
         "border-dark-accent/20 bg-dark-accent/10 text-dark-accent hover:bg-dark-accent/20",
     };
     return colorMap[color as keyof typeof colorMap] || colorMap.primary;
+  };
+
+  // Returns color classes for a skill based on its category and index (alternating colors)
+  const skillColorClasses = [
+    "bg-dark-primary/10 text-dark-primary hover:bg-dark-primary/20",
+    "bg-dark-accent/10 text-dark-accent hover:bg-dark-accent/20",
+    "bg-dark-secondary/10 text-dark-secondary hover:bg-dark-secondary/20",
+    "bg-dark-highlight/10 text-dark-highlight hover:bg-dark-highlight/20",
+  ];
+  const getSkillColorClasses = (category: string, index: number) => {
+    // Group skills by category and assign alternating colors within each group
+    // We'll do this in the render below for best performance
+    return skillColorClasses[index % skillColorClasses.length];
   };
 
   return (
@@ -229,7 +243,9 @@ export default function Home() {
         {/* Hero Section */}
         <section
           id="about"
-          ref={(el) => (sectionsRef.current.about = el)}
+          ref={el => {
+            sectionsRef.current.about = el;
+          }}
           className="relative min-h-screen overflow-hidden pt-16"
         >
           <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -265,15 +281,26 @@ export default function Home() {
               <p className="mx-auto mb-6 max-w-[600px] text-xl text-muted-foreground">
                 {websiteData.personal.description}
               </p>
-              <div className="mb-8 flex flex-wrap justify-center gap-2">
-                {websiteData.skills.map((skill) => (
-                  <Badge
-                    key={skill.name}
-                    className={getColorClasses(skill.color)}
-                  >
-                    {skill.name}
-                  </Badge>
-                ))}
+              <div className="mb-8 flex flex-wrap justify-center gap-2 max-w-xl mx-auto">
+                {(() => {
+                  // Group skills by category
+                  const grouped: { [cat: string]: typeof websiteData.skills } = {};
+                  websiteData.skills.forEach((skill) => {
+                    if (!grouped[skill.category]) grouped[skill.category] = [];
+                    grouped[skill.category].push(skill);
+                  });
+                  // Render badges, alternating color within each category
+                  return Object.entries(grouped).flatMap(([category, skills]) =>
+                    skills.map((skill, i) => (
+                      <Badge
+                        key={skill.name}
+                        className={getSkillColorClasses(category, i)}
+                      >
+                        {skill.name}
+                      </Badge>
+                    ))
+                  );
+                })()}
               </div>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button
@@ -696,7 +723,7 @@ export default function Home() {
                       </div>
 
                       <div className="mt-12">
-                        <p className="mb-4 text-white/80">Follow me!</p>
+                        <p className="mb-4 text-white/80">Follow me</p>
                         <div className="flex gap-4">
                           <Link
                             href={websiteData.social.linkedin}
@@ -709,6 +736,19 @@ export default function Home() {
                             >
                               <Linkedin className="h-5 w-5" />
                               <span className="sr-only">LinkedIn</span>
+                            </Button>
+                          </Link>
+                          <Link
+                            href={websiteData.social.instagram}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <Button
+                              size="icon"
+                              className="rounded-full bg-white/10 text-white hover:bg-white/20"
+                            >
+                              <Instagram className="h-5 w-5" />
+                              <span className="sr-only">Instagram</span>
                             </Button>
                           </Link>
                         </div>
