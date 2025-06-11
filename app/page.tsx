@@ -24,7 +24,8 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import websiteData from "@/data/website-data.json";
+import { ThemeToggle } from "@/components/theme-toggle";
+import websiteData from "@/data/website-data.json" assert { type: "json" };
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about");
@@ -156,6 +157,7 @@ export default function Home() {
           </nav>
 
           <div className="flex items-center gap-2 md:gap-4">
+            <ThemeToggle />
             <div className="hidden md:flex md:items-center md:gap-2">
               <Link
                 href={websiteData.social.github}
@@ -392,14 +394,12 @@ export default function Home() {
                     {/* Card positioning */}
                     <div className="md:w-1/2">
                       <Card
-                        className={`overflow-hidden border-none bg-background/50 shadow-lg ${role.isCurrent ? "backdrop-blur-sm" : ""}`}
+                        className={`overflow-hidden border-none bg-background/50 shadow-lg backdrop-blur-sm`}
                       >
                         {role.isCurrent && (
                           <div className="absolute inset-0 bg-gradient-to-r from-dark-primary/10 to-dark-secondary/10" />
                         )}
-                        <CardHeader
-                          className={role.isCurrent ? "relative" : ""}
-                        >
+                        <CardHeader className={role.isCurrent ? "relative" : ""}>
                           {role.isCurrent ? (
                             <div className="flex items-center justify-between">
                               <CardTitle>{role.title}</CardTitle>
