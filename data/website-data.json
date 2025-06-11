@@ -203,7 +203,7 @@
       "id": "corgimq",
       "title": "CorgiMQ",
       "description": "An open source lightweight Java message queue library built on your RDBMS.",
-      "image": "/placeholder.svg?height=200&width=400",
+      "image": "https://raw.githubusercontent.com/hailuand/corgimq/main/mascot.jpg?height=200&width=400",
       "technologies": [
         "Java",
         "Postgres",
@@ -218,7 +218,7 @@
       "id": "avro",
       "title": "Apache Avro",
       "description": "Apache Avro  data serialization system.",
-      "image": "/placeholder.svg?height=200&width=400",
+      "image": "https://avro.apache.org/images/logo.svg?height=200&width=400",
       "technologies": [
         "Open Source",
         "Data Format",
@@ -232,7 +232,7 @@
       "id": "parquet",
       "title": "Apache Parquet",
       "description": "Apache Parquet is a column-oriented data file format designed for efficient data storage and retrieval.",
-      "image": "/placeholder.svg?height=200&width=400",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/47/Apache_Parquet_logo.svg?height=200&width=400",
       "technologies": [
         "Open Source",
         "Data Format",
