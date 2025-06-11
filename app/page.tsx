@@ -358,7 +358,7 @@ export default function Home() {
                 Experience
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground">
-                My professional journey building exceptional software solutions
+                My journey building software solutions 👷🏾‍♂️
               </p>
             </motion.div>
 
