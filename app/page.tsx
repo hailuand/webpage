@@ -3,15 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  ExternalLink,
-  ArrowDown,
-  Menu,
-  Instagram,
-} from "lucide-react";
+import { Mail, ExternalLink, ArrowDown, Menu } from "lucide-react";
+import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
@@ -77,18 +70,6 @@ export default function Home() {
         behavior: "smooth",
       });
     }
-  };
-
-  const getColorClasses = (color: string) => {
-    const colorMap = {
-      primary: "bg-dark-primary/10 text-dark-primary hover:bg-dark-primary/20",
-      secondary:
-        "bg-dark-secondary/10 text-dark-secondary hover:bg-dark-secondary/20",
-      accent: "bg-dark-accent/10 text-dark-accent hover:bg-dark-accent/20",
-      highlight:
-        "bg-dark-highlight/10 text-dark-highlight hover:bg-dark-highlight/20",
-    };
-    return colorMap[color as keyof typeof colorMap] || colorMap.primary;
   };
 
   const getProjectButtonClasses = (color: string) => {
@@ -165,7 +146,7 @@ export default function Home() {
                 rel="noreferrer"
               >
                 <Button variant="ghost" size="icon" className="rounded-full">
-                  <Github className="h-4 w-4" />
+                  <FaGithub className="h-4 w-4" />
                   <span className="sr-only">GitHub</span>
                 </Button>
               </Link>
@@ -175,7 +156,7 @@ export default function Home() {
                 rel="noreferrer"
               >
                 <Button variant="ghost" size="icon" className="rounded-full">
-                  <Linkedin className="h-4 w-4" />
+                  <FaLinkedinIn className="h-4 w-4" />
                   <span className="sr-only">LinkedIn</span>
                 </Button>
               </Link>
@@ -213,7 +194,7 @@ export default function Home() {
                       rel="noreferrer"
                     >
                       <Button variant="ghost" size="icon">
-                        <Github className="h-5 w-5" />
+                        <FaGithub className="h-5 w-5" />
                         <span className="sr-only">GitHub</span>
                       </Button>
                     </Link>
@@ -223,7 +204,7 @@ export default function Home() {
                       rel="noreferrer"
                     >
                       <Button variant="ghost" size="icon">
-                        <Linkedin className="h-5 w-5" />
+                        <FaLinkedinIn className="h-5 w-5" />
                         <span className="sr-only">LinkedIn</span>
                       </Button>
                     </Link>
@@ -245,7 +226,7 @@ export default function Home() {
         {/* Hero Section */}
         <section
           id="about"
-          ref={el => {
+          ref={(el) => {
             sectionsRef.current.about = el;
           }}
           className="relative min-h-screen overflow-hidden pt-16"
@@ -283,10 +264,11 @@ export default function Home() {
               <p className="mx-auto mb-6 max-w-[600px] text-xl text-muted-foreground">
                 {websiteData.personal.description}
               </p>
-              <div className="mb-8 flex flex-wrap justify-center gap-2 max-w-xl mx-auto">
+              <div className="mx-auto mb-8 flex max-w-xl flex-wrap justify-center gap-2">
                 {(() => {
                   // Group skills by category
-                  const grouped: { [cat: string]: typeof websiteData.skills } = {};
+                  const grouped: { [cat: string]: typeof websiteData.skills } =
+                    {};
                   websiteData.skills.forEach((skill) => {
                     if (!grouped[skill.category]) grouped[skill.category] = [];
                     grouped[skill.category].push(skill);
@@ -300,7 +282,7 @@ export default function Home() {
                       >
                         {skill.name}
                       </Badge>
-                    ))
+                    )),
                   );
                 })()}
               </div>
@@ -399,7 +381,9 @@ export default function Home() {
                         {role.isCurrent && (
                           <div className="absolute inset-0 bg-gradient-to-r from-dark-primary/10 to-dark-secondary/10" />
                         )}
-                        <CardHeader className={role.isCurrent ? "relative" : ""}>
+                        <CardHeader
+                          className={role.isCurrent ? "relative" : ""}
+                        >
                           {role.isCurrent ? (
                             <div className="flex items-center justify-between">
                               <CardTitle>{role.title}</CardTitle>
@@ -497,7 +481,7 @@ export default function Home() {
                             size="icon"
                             className="h-8 w-8 rounded-full"
                           >
-                            <Github className="h-4 w-4" />
+                            <FaGithub className="h-4 w-4" />
                             <span className="sr-only">GitHub</span>
                           </Button>
                         </Link>
@@ -544,7 +528,7 @@ export default function Home() {
                               target="_blank"
                               rel="noreferrer"
                             >
-                              GitHub <Github className="h-3 w-3" />
+                              GitHub <FaGithub className="h-3 w-3" />
                             </Link>
                           </Button>
                         )}
@@ -582,7 +566,7 @@ export default function Home() {
                 Talks
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground">
-                Conference talks and presentations I've given 🗣️
+                Conference talks and presentations I&apos;ve given 🗣️
               </p>
             </motion.div>
 
@@ -652,7 +636,7 @@ export default function Home() {
                 Contact
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground">
-                Let's connect!
+                Let&apos;s connect!
               </p>
             </motion.div>
 
@@ -689,7 +673,7 @@ export default function Home() {
 
                         <div className="flex items-center gap-4">
                           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
-                            <Linkedin className="h-5 w-5" />
+                            <FaLinkedinIn className="h-5 w-5" />
                           </div>
                           <div>
                             <p className="text-sm text-white/70">LinkedIn</p>
@@ -706,7 +690,7 @@ export default function Home() {
 
                         <div className="flex items-center gap-4">
                           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
-                            <Github className="h-5 w-5" />
+                            <FaGithub className="h-5 w-5" />
                           </div>
                           <div>
                             <p className="text-sm text-white/70">GitHub</p>
@@ -734,7 +718,7 @@ export default function Home() {
                               size="icon"
                               className="rounded-full bg-white/10 text-white hover:bg-white/20"
                             >
-                              <Linkedin className="h-5 w-5" />
+                              <FaLinkedinIn className="h-5 w-5" />
                               <span className="sr-only">LinkedIn</span>
                             </Button>
                           </Link>
@@ -747,7 +731,7 @@ export default function Home() {
                               size="icon"
                               className="rounded-full bg-white/10 text-white hover:bg-white/20"
                             >
-                              <Instagram className="h-5 w-5" />
+                              <FaInstagram className="h-5 w-5" />
                               <span className="sr-only">Instagram</span>
                             </Button>
                           </Link>
@@ -765,8 +749,8 @@ export default function Home() {
       <footer className="border-t py-8">
         <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
           <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            © {new Date().getFullYear()} {websiteData.personal.name}. All
-            rights reserved.
+            © {new Date().getFullYear()} {websiteData.personal.name}. All rights
+            reserved.
           </p>
           <div className="flex items-center gap-4">
             <Link
@@ -775,7 +759,7 @@ export default function Home() {
               rel="noreferrer"
             >
               <Button variant="ghost" size="icon" className="rounded-full">
-                <Github className="h-4 w-4" />
+                <FaGithub className="h-4 w-4" />
                 <span className="sr-only">GitHub</span>
               </Button>
             </Link>
@@ -785,7 +769,7 @@ export default function Home() {
               rel="noreferrer"
             >
               <Button variant="ghost" size="icon" className="rounded-full">
-                <Linkedin className="h-4 w-4" />
+                <FaLinkedinIn className="h-4 w-4" />
                 <span className="sr-only">LinkedIn</span>
               </Button>
             </Link>

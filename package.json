@@ -6,8 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "prepare": "husky install"
+    "lint": "eslint .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
@@ -48,13 +48,14 @@
     "embla-carousel-react": "8.6.0",
     "framer-motion": "latest",
     "input-otp": "1.4.2",
-    "lucide-react": "^0.577.0",
+    "lucide-react": "^1.17.0",
     "next": "^16.2.6",
     "next-themes": "^0.4.4",
     "react": "^19",
     "react-day-picker": "^10.0.1",
     "react-dom": "^19",
     "react-hook-form": "^7.75.0",
+    "react-icons": "^5.5.0",
     "react-resizable-panels": "^4.11.2",
     "recharts": "3.8.1",
     "sonner": "^2.0.7",
@@ -78,7 +79,7 @@
     "typescript": "^6"
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
+    "*.{js,jsx,ts,tsx,css,md,json}": "prettier --write"
   }
 }
